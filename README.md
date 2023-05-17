@@ -7,17 +7,12 @@ All the work in this repository is using Juan Fraire's project pyCGR https://bit
 You can check out his paper / tutorial on contact graph routing https://www.sciencedirect.com/science/article/abs/pii/S1084804520303489 which outlines how contact graph routing works and its use cases.
 
 ## Algorithms
-[] Dijkstra's: compute the single best route
-
-[] Depth first search: compute all routes using DFS
-
-[] Yen's algorithm: compute the best k routes
-
-[] Anchor search: compute route list using Anchor search
-
-[] First ended: time based search
-
-[] First depleted: capacity oriented search
+- [x] Dijkstra's: compute the single best route
+- [ ] Depth first search: compute all routes using DFS
+- [ ] Yen's algorithm: compute the best k routes
+- [ ] Anchor search: compute route list using Anchor search
+- [ ] First ended: time based search
+- [ ] First depleted: capacity oriented search
 
 ## Program Input Contract
 
@@ -25,5 +20,5 @@ The input to a contact graph routing algorithm will be the contact plan which is
 
 Any line starting with a `#` will be ignored.
 ```
-[+|-]<start> [+|-]<end> <from> <to> <rate> <range>
+<start> <end> <from> <to> <rate> <range>
 ```
