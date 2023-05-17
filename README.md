@@ -21,9 +21,9 @@ You can check out his paper / tutorial on contact graph routing https://www.scie
 
 ## Program Input Contract
 
-The input to a contact graph routing algorithm will be the contact plan which is a list of individual contacts with the format below (CSV).
+The input to a contact graph routing algorithm will be the contact plan which is a list of individual contacts with the format below (space separated values).
 
 Any line starting with a `#` will be ignored.
 ```
-[+|-]<start>,[+|-]<end><from>,<to>,<rate>,<range>
+[+|-]<start> [+|-]<end> <from> <to> <rate> <range>
 ```
