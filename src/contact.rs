@@ -1,4 +1,4 @@
-use std::{cmp, fs};
+use std::fs;
 use uuid::Uuid;
 
 pub type Node = u32;
