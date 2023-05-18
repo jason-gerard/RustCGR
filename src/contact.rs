@@ -1,4 +1,5 @@
 use std::fs;
+use rand::Rng;
 use uuid::Uuid;
 
 pub type Node = u32;
@@ -66,6 +67,26 @@ impl Contact {
             &path,
             contact_plan.len()
         );
+        return contact_plan;
+    }
+    
+    pub fn load_random(n_contacts: u32, n_nodes: u32) -> Vec<Contact> {
+        let mut rng = rand::thread_rng();
+        
+        let mut contact_plan = Vec::new();
+        for _ in 0..n_contacts {
+            let start = rng.gen_range(0..999);
+            let end = start + rng.gen_range(1..100);
+            let from = rng.gen_range(1..=n_nodes);
+            let mut to = rng.gen_range(1..=n_nodes);
+            
+            while to == from {
+                to = rng.gen_range(1..n_contacts); 
+            } 
+            
+            contact_plan.push(Contact::new(start, end, from, to, 1, 1));
+        }
+        
         return contact_plan;
     }
 }

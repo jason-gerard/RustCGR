@@ -17,7 +17,7 @@ pub fn cgr_dijkstra(
             .push(contact.uuid)
     });
 
-    dbg!(&adjacency_list);
+    // dbg!(&adjacency_list);
 
     let root_contact_id = root_contact.uuid.clone();
     // Map containing all the details of the contacts, this is so we don't have interior mutability
@@ -28,7 +28,7 @@ pub fn cgr_dijkstra(
         contact_details.insert(contact.uuid, contact);
     });
 
-    dbg!(&contact_details);
+    // dbg!(&contact_details);
 
     let mut final_contact = None;
     let mut earliest_final_arrival_time = u32::MAX;

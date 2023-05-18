@@ -37,9 +37,7 @@ pub fn cgr_yen(
             
             let mut spur_contact_mut = spur_contact.clone();
             for route in routes.iter() {
-                dbg!("here");
-                if root_path.hops == route.hops[0..root_path.hops.len()].to_vec() && !spur_contact.suppressed_next_hop.contains(&route.hops.get(root_path.hops.len()).unwrap().uuid) {
-                    dbg!("here");
+                if root_path.hops == route.hops.clone().into_iter().take(root_path.hops.len()).collect::<Vec<_>>() && !spur_contact.suppressed_next_hop.contains(&route.hops.get(root_path.hops.len()).unwrap().uuid) {
                     spur_contact_mut.suppressed_next_hop.push(route.hops.get(root_path.hops.len()).unwrap().uuid.clone());
                 }
             }
