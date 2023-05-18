@@ -1,4 +1,5 @@
 use rust_cgr::algorithms::dijkstra::cgr_dijkstra;
+use rust_cgr::algorithms::yen::cgr_yen;
 use rust_cgr::contact::Contact;
 
 fn main() {
@@ -11,10 +12,20 @@ fn main() {
     let mut root_contact = Contact::new(0, u32::MAX, source, source, 100, 0);
     root_contact.arrival_time = current_time;
 
-    let route = cgr_dijkstra(&mut root_contact, destination, plan);
-    if let Some(route) = route {
-        dbg!(route);
-    } else {
-        println!("No route was generated");
+    // let route = cgr_dijkstra(&mut root_contact, destination, plan);
+    // if let Some(route) = route {
+    //     dbg!(route);
+    // } else {
+    //     println!("No route was generated");
+    // }
+
+    let routes = cgr_yen(&mut root_contact, destination, plan, 10);
+    
+    println!("route count: {}", routes.len());
+    for route in routes.iter() {
+        println!("route with arrival time {}", route.hops.iter().map(|contact| contact.arrival_time).sum::<u32>());
+        print!("{}, ", route.hops.get(0).unwrap().from);
+        route.hops.iter().for_each(|contact| print!("{}, ", contact.to));
+        println!();
     }
 }

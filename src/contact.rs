@@ -3,7 +3,7 @@ use uuid::Uuid;
 
 pub type Node = u32;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Contact {
     pub uuid: Uuid, // A unique identifier for each contact
     pub start: u32,
@@ -16,6 +16,8 @@ pub struct Contact {
     pub visited: bool,
     pub visited_nodes: Vec<Node>,
     pub predecessor: Option<Uuid>,
+    pub suppressed: bool,
+    pub suppressed_next_hop: Vec<Uuid>,
 }
 
 impl Contact {
@@ -32,6 +34,8 @@ impl Contact {
             visited: false,
             visited_nodes: Vec::new(),
             predecessor: None,
+            suppressed: false,
+            suppressed_next_hop: Vec::new(),
         }
     }
 

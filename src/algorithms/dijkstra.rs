@@ -51,6 +51,8 @@ pub fn cgr_dijkstra(
                 || next_contact.end <= current_contact.arrival_time
                 || (current_contact.from == next_contact.to
                     && current_contact.to == next_contact.from)
+                || next_contact.suppressed
+                || current_contact.suppressed_next_hop.contains(&next_contact_id)
             {
                 continue;
             }
