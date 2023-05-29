@@ -9,7 +9,7 @@ You can check out his paper / tutorial on contact graph routing https://www.scie
 ## Algorithms
 - [x] Dijkstra's: compute the single best route
 - [ ] Depth first search: compute all routes using DFS
-- [ ] Yen's algorithm: compute the best k routes
+- [X] Yen's algorithm: compute the best k routes
 - [ ] Anchor search: compute route list using Anchor search
 - [ ] First ended: time based search
 - [ ] First depleted: capacity oriented search
